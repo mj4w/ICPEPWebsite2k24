@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/resources.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+ <!-- <section class="hero-wrapper">
+            <h1>Software Tools</h1>
+        </section> -->
+
+<section class="resources">
+    <div class="container">
+        <h2 class="section-title">Software Tools</h2>
+
+        <div class="wrapper">
+            <input type="radio" name="slider" id="documents" checked>
+            <input type="radio" name="slider" id="media">
+            <input type="radio" name="slider" id="programming">
+
+            <nav class="secondary-navbar">
+                <label for="documents" class="documents">Documents</label>
+                <label for="media" class="media">Media</label>
+                <label for="programming" class="programming">Programming</label>
+                <div class="slider"></div>
+            </nav>
+
+            <div class="card-list">
+                <div class="content content-1">
+                    <div class="list">
+                        <a href="https://www.microsoft.com/en-us/microsoft-365" target="_blank" class="card">
+                            <div class="img-holder">
+                                <img src="../static/img/resources_page/img_1.webp">
+                            </div>
+                            <div class="card-content">
+                                <h3>Microsoft 365</h3>
+                                <p>Don't confuse with Visual Studio 2019 above. This is the best code editor for Python, HTML/CSS, and almost every programming language, given you'll do a couple of setups</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="content content-2">
+                    <div class="list">
+                        <a href="http://draw.io/" target="_blank" class="card">
+                            <div class="img-holder">
+                                <img src="../static/img/resources_page/media_img_1.png">
+                            </div>
+                            <div class="card-content">
+                                <h3>Draw.io</h3>
+                                <p>Free online diagram software for making flowcharts, process diagrams, org charts, UML, ER and network diagrams.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="content content-3">
+                    <div class="list">
+                        <a href="https://flutter.dev/docs/get-started/install" target="_blank" class="card">
+                            <div class="img-holder">
+                                <img src="../static/img/resources_page/programming_img_17.jpg">
+                            </div>
+                            <div class="card-content">
+                                <h3>Flutter</h3>
+                                <p>An Extension to Android Studio that let's you code beautiful Android Apps</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

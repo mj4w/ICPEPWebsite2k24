@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load tz %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">  
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">  
+{% endblock  %}
+
+{% block content %}    
+    <!-- EVENT DETAILED -->
+    <section class="event-detailed container">
+        <a href="{% url 'home' %}" class="back-btn"><i class="fa-solid fa-chevron-left"></i> Back</a>
+        <div class="event-detailed-list">
+            <div class="event-detailed-banner">
+                {% if highlights.image %}
+                    <img src="{{highlights.image.url}}" alt="{{highlights.title}}"/>
+                {% else %}
+                    <p>No IMG</p>
+                {% endif %}
+            </div>
+            <div class="event-detailed-info">
+                <h1>{{highlights.title}}</h1>
+                <div class="date">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <p>Date and Time</p>
+                    <p>{{highlights.date_to|date:"l, F, j"}} to {{highlights.date_from}} - Submission</p>
+                </div>
+                <div class="location">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>Location</p>
+                    <p>{{highlights.location}}</p>
+                </div>
+                <div class="host">
+                    <i class="fa-solid fa-camera"></i>
+                    <p>Hosted by</p>
+                    <p>Documentation Team</p>
+                </div>
+            </div>
+        </div>
+        <div class="event-detailed-desc">
+            <h3>Description</h3>
+            <div class="desc">
+                <p>{{highlights.desc}}</p>
+                <br>
+                {% if ping == 1 %}
+                <p>{{ highlights.link_desc }} <a href="{{ highlights.url }}" target="_blank">{{ highlights.url }}</a></p>
+                {% else %}
+                <p>{{ highlights.link_desc }} <a href="#ISAIDLINKEDCLOSED!!" target="">LINK CLOSED</a></p>
+                {% endif %}
+
+            
+            </div>
+        </div> 
+    </section>
+{% endblock content %}
+ 
