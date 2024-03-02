@@ -34,21 +34,30 @@
 
             <nav class="navbar" >
                 <ul>
-                    <li><a href="#">Events</a></li>
+                    <li><a href="{% url 'coming-soon' %}">Events</a></li>
                     <li><a href="{% url 'resources' %}">Resources</a></li>
-                    <li><a href="#">Membership</a></li>
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="{% url 'coming-soon' %}">Membership</a></li>
+                    <li><a href="{% url 'coming-soon' %}">About Us</a></li>
                 </ul>
-
+                {% if request.user.is_authenticated %}
                 <i class="fa-regular fa-user" id="user" onclick="toggleMenu()"></i> 
-            
+
                 <div class="sub-menu" id="subMenu">
                     <div class="sub-menu-info">
-                        <li>Juan A. Dele Cruz</li>
-                        <li>juan.delacruz@bulsu.edu.ph</li>
-                        <li><i class="fa-solid fa-right-from-bracket"></i> Logout</li>
+                        <li>{{request.user.username}}</li>
+                        <hr/>
+                        {% if request.user.email %}
+                        <li>{{request.user.email}}</li>
+                        {% else %}
+                        <li>No email found</li>
+                        {% endif %}
+                        <hr/>
+                        <li><a href="{% url 'log-out' %}" style="color:#fff">
+                            <i class="fa-solid fa-right-from-bracket"></i> Logout</li>
+                        </a>
                     </div>
                 </div>
+                {% endif %}
             </nav>          
         </div>
     </header>
@@ -63,7 +72,7 @@
     <footer>
         <div class="container">
             <div class="footer-logo">
-                <img src="../static/img/homepage_images/icpep_logo2.png">
+                <img src="{% static 'img/homepage_images/icpep_logo2.png' %}">
                 <h1>Institute of Computer Engineers  of the Philippines
                     <span><br>Student Edition - Bulacan State University Meneses Campus</span>
                 </h1>

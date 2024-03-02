@@ -16,7 +16,7 @@
             <h1>{{banner.primary_text}}</h1>
             <span>{{banner.primary_sub}}</span>
             <p>{{banner.description}}</p>
-            <a href="#" class="btn">Register</a>
+            <a href="{% url 'register-user' %}" class="btn">Register</a>
         </div>
     </div>
 </section>
@@ -35,9 +35,9 @@
             {% if aboutpic %}
                 <h3 class="section-title">{{ aboutpic.image_title }}</h3>
                 <p>{{ aboutpic.description }}</p>
-                <div class="read-more">
+                <!-- <div class="read-more">
                     <a href="#">Read more<i class="fa-solid fa-chevron-right"></i></a>
-                </div>  
+                </div>   -->
             {% else %}
                 <p>No Content</p>
             {% endif %}  
@@ -60,7 +60,7 @@
                         {% endif %}
                     </div>
                     <div class="card-content">
-                        <a href="{% url 'highlights' highlight.id %}"> <h3>{{ highlight.title }}</h3></a>
+                        <a href="{% url 'highlights' highlight.id %}" class="hover-card"> <h3>{{ highlight.title }}</h3></a>
                         <div class="card-details">
                             <p><i class="fa-solid fa-calendar-days"></i> {{ highlight.date_to|date:"l, F j" }} at {{ highlight.time|time:"P" }}</p>
                             <p><i class="fa-solid fa-location-dot"></i>{{ highlight.location }}</p>
@@ -82,26 +82,39 @@
 <!-- TOOLS -->
 <section class="tools">
     <div class="container">
-        {% if softwaretools %}
+        {% if request.user.is_authenticated %}
         <div class="section-title">Software Tools</div>
+        {% else %}
+        <div class="section-title">Software Tools (Register for more!)</div>
         {% endif %}
         <div class="swiper tools-slider">
             <div class="swiper-wrapper">
                 {% for softwaretool in softwaretools %}
                 <div class="box swiper-slide">
-                    <a href="{{ softwaretool.url }}">
+                    <a href="{{ softwaretool.url }}" target="_blank" >
                         {% if softwaretool.image %}
-                            <img src="{{ softwaretool.image.url }}">
+                            <img src="{{ softwaretool.image.url }}" alt="" />
                         {% else %}
                             <p>No image</p>
                         {% endif %}
                     </a>
                 </div>
-                {% endfor %}
+                {% endfor %}    
             </div>
             <div class="swiper-pagination"></div>
         </div>
     </div>
 </section>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.card:gt(2)').hide(); 
 
+        $('.view-more a').on('click', function(e) {
+            e.preventDefault();
+
+            $('.card:hidden').slice(0, 3).slideDown(); 
+        });
+    });
+</script>
 {% endblock content %}

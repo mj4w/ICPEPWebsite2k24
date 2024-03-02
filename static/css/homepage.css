@@ -231,6 +231,9 @@ img{
     /* padding: 14px 16px; */
     border-top: 4px solid var(--primary-color);
 }
+.hover-card:hover h3 {
+    color: var(--primary-color);
+}
 
 .card-content h3{
     font-size: 20px;
@@ -287,43 +290,54 @@ img{
 /*-----------------------------------*\
   #EVENTS DETAILED
 \*-----------------------------------*/
-.event-detailed{   
+.event-detailed {
     padding-block-start: 20px;
 }
 
-.event-detailed-list{
+.event-detailed-list {
     display: flex;
-    align-items: start;
+    flex-direction: column; /* Mobile view: stack items vertically */
     gap: 20px;
-    /* padding-block-end: 15px;
-    border-bottom: 2px solid rgb(194, 194, 194); */
 }
 
-.event-detailed-banner{
+.event-detailed-banner {
     overflow: hidden;
     height: 70vh;
-    width: 664px;
+    width: 100%; /* Full width */
     padding: 30px;
     position: relative;
 }
 
-.event-detailed-banner img{
+.event-detailed-banner img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.event-detailed-info{
+.event-detailed-info {
     padding: 30px 10px;
-    width: 50%;
+    width: 100%; /* Full width */
 }
 
-.event-detailed-info h1{
+.event-detailed-info h1 {
     margin-block-end: 30px;
     font-size: 40px;
     font-weight: 400;
 }
 
+@media screen and (min-width: 768px) {
+    .event-detailed-list {
+        flex-direction: row; /* Tablets and larger: arrange items in a row */
+    }
+
+    .event-detailed-banner {
+        width: 664px; /* Adjust as needed */
+    }
+
+    .event-detailed-info {
+        width: 50%;
+    }
+}
 .date,
 .location,
 .host{
@@ -483,6 +497,39 @@ footer .container{
     /* === EVENT === */
     .event-list{
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+      /* === HEADER === */
+      .hero .container{
+        min-height: 85.5vh;
+    }
+
+    .hero-content h1,
+    .hero-content span{
+        font-size: 20px;
+    }
+
+    .hero-content h3{
+        font-size: 16px;
+        font-weight: 100;
+        /* line-height: 24px; */
+        letter-spacing: 10px;
+        color: var(--white);
+        padding-bottom: 8px;
+    }
+    
+    .hero-content h1,
+    .hero-content span{
+        font-size: 61px;
+        font-weight: bold;
+        color: var(--primary-color);
+    }
+    
+    .hero-content span{
+        color: var(--white);
+    }
+    
+    .hero-content p{
+        width: auto;
     }
 }
 

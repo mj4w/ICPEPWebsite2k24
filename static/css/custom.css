@@ -481,8 +481,7 @@ footer .container{
     .footer-logo h1 span{
         font-size: 14px;
     }
-}
-
+    /* === Highlights === */
 @media(max-width: 360px){
     .container{
         max-width: 340px;

@@ -45,3 +45,4 @@ class SoftwareToolsResource(models.Model):
     url = models.URLField(max_length=255, blank=True, null=True)
     image = models.ImageField(upload_to='software-resources/')
     desc = models.CharField(max_length=255, blank=True)
+    
