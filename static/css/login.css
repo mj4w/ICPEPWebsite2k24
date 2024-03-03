@@ -141,7 +141,7 @@ form {
     margin-bottom: 4px;
 }
 
-a {
+.login-button {
     display: block;
     text-align: right;
     text-decoration: none;
@@ -150,7 +150,7 @@ a {
     transition: .3s;
 }
 
-a:hover {
+.login-button:hover {
     color: #FB7033;
 }
 

@@ -51,6 +51,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'ICPEP.urls'
+AUTH_USER_MODEL = 'app.User'
 
 TEMPLATES = [
     {

@@ -19,7 +19,11 @@
                 {% endif %}
             </div>
             <div class="event-detailed-info">
-                <h1>{{highlights.title}}</h1>
+                {% if ping == 1 %}
+                <h1>{{highlights.title}} <span style="color: green;">(ONGOING)</span></h1>
+                {% else %}
+                <h1>{{highlights.title}} <span style="color: red;">(CLOSED)</span></h1>
+                {% endif %}
                 <div class="date">
                     <i class="fa-solid fa-calendar-days"></i>
                     <p>Date and Time</p>
@@ -33,7 +37,16 @@
                 <div class="host">
                     <i class="fa-solid fa-chalkboard-user"></i>
                     <p>Hosted by</p>
-                    <p>Documentation Team</p>
+                    {% if highlights.details %}
+                    <p>{{highlights.details}}</p>
+                    {% else %}
+                    <p>N/A</p>
+                    {% endif %}
+                </div>
+                <div>
+                    {% if highlights.learn_more %}
+                    <a href="{{ highlights.learn_more }}" class="btn" target="_blank">Learn More</a>
+                    {% endif %}
                 </div>
             </div>
         </div>

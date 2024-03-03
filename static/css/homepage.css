@@ -73,7 +73,7 @@ img{
   #HERO
 \*-----------------------------------*/
 .hero{
-    background-image: linear-gradient(rgba(255,112,51,0.3) 100%, rgba(255,112,51,0.3) 100%), url(/homepage_images/home-bg.jpg);
+    background-image: linear-gradient(rgba(255,112,51,0.3) 100%, rgba(255,112,51,0.3) 100%), url(../img/home-bg.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -88,7 +88,7 @@ img{
 
 .hero-content h3{
     font-size: 21px;
-    font-weight: 100;
+    font-weight: 400;
     /* line-height: 24px; */
     letter-spacing: 10px;
     color: var(--white);
@@ -108,7 +108,7 @@ img{
 
 .hero-content p{
     width: 60vh;
-    font-weight: 400;
+    font-weight: 500;
     color: var(--white);
     padding-top: 8px;
     padding-bottom: 24px;
