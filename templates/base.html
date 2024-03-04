@@ -38,7 +38,6 @@
                     <li><a href="{% url 'resources' %}">Resources</a></li>
                     <li><a href="{% url 'coming-soon' %}">Membership</a></li>
                     <li><a href="{% url 'coming-soon' %}">About Us</a></li>
-                </ul>
                 {% if request.user.is_authenticated %}
                 <i class="fa-regular fa-user" id="user" onclick="toggleMenu()"></i> 
 
@@ -52,12 +51,15 @@
                         <li>No email found</li>
                         {% endif %}
                         <hr/>
-                        <li><a href="{% url 'log-out' %}" style="color:#fff">
-                            <i class="fa-solid fa-right-from-bracket"></i> Logout</li>
-                        </a>
+    
+                       
                     </div>
                 </div>
+                <li><a href="{% url 'log-out' %}" style="color:#fff">
+                    <i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+        
                 {% endif %}
+                </ul>
             </nav>          
         </div>
     </header>

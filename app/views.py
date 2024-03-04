@@ -89,7 +89,7 @@ def register_user(request):
 def logout_user(request):
     logout(request)
     messages.success(request,'Thankyou For Visiting!')
-    return redirect('/')
+    return redirect('home')
 
 
 # coming soon

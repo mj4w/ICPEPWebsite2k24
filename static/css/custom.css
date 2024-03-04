@@ -432,9 +432,6 @@ footer .container{
         opacity: 1;
     }
 
-    .sub-menu.open-menu{
-        max-height: 400px;
-    }
     
     .sub-menu-info{
         padding: 0;
